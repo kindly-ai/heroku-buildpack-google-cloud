@@ -6,3 +6,7 @@ else
     echo "$GOOGLE_CREDENTIALS" | base64 -d > /app/google-credentials.json
     gcloud auth activate-service-account --key-file /app/google-credentials.json
 fi
+
+# Set default project and compute zone
+gcloud config set project $PROJECT
+gcloud config set compute/zone $ZONE
