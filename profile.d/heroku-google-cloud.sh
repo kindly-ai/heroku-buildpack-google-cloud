@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
+
+# Add gcloud to PATH
 export PATH=/app/vendor/google-cloud-sdk/bin:$PATH
+
 if [ -z $GOOGLE_CREDENTIALS ]; then
     echo "GOOGLE_CREDENTIALS not set"
 else
@@ -14,6 +17,3 @@ fi
 if [ ! -z $ZONE ]; then
     gcloud config set compute/zone $ZONE
 fi
-
-# Install kubectl
-gcloud components install kubectl --quiet
