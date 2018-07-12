@@ -10,3 +10,6 @@ fi
 # Set default project and compute zone
 gcloud config set project $PROJECT
 gcloud config set compute/zone $ZONE
+
+# Install kubectl
+gcloud components install kubectl --quiet
