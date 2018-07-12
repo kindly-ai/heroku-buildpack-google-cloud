@@ -8,8 +8,12 @@ else
 fi
 
 # Set default project and compute zone
-gcloud config set project $PROJECT
-gcloud config set compute/zone $ZONE
+if [ ! -z $PROJECT ]; then
+    gcloud config set project $PROJECT
+fi
+if [ ! -z $ZONE ]; then
+    gcloud config set compute/zone $ZONE
+fi
 
 # Install kubectl
 gcloud components install kubectl --quiet
