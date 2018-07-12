@@ -1,4 +1,3 @@
-# Authenticate with service account in GOOGLE_CREDENTIALS
 #!/usr/bin/env bash
 export PATH=/app/vendor/google-cloud-sdk/bin:$PATH
 if [ -z $GOOGLE_CREDENTIALS ]; then
