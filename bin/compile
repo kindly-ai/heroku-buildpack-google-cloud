@@ -21,6 +21,6 @@ rm -rf /tmp/google-cloud-sdk.zip
 mkdir -p $BUILD_DIR/.profile.d
 cat <<EOF >$BUILD_DIR/.profile.d/heroku-google-cloud.sh
 export PATH=/app/vendor/google-cloud-sdk/bin:$PATH
-echo $GOOGLE_CREDENTIALS | base64 -d > /app/google-credentials.json
+echo $ENV_DIR/GOOGLE_CREDENTIALS | base64 -d > /app/google-credentials.json
 gcloud auth activate-service-account --key-file /app/google-credentials.json
 EOF
