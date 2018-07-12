@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# Usage:
+#
+#     $ bin/compile <build-dir> <cache-dir> <env-path>
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
+VENDOR_DIR=$BUILD_DIR/vendor
+mkdir -p $VENDOR_DIR
+
+# Download and install Google Cloud SDK
+wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.zip -qO /tmp/google-cloud-sdk.zip
+unzip -qd $VENDOR_DIR /tmp/google-cloud-sdk.zip
+$VENDOR_DIR/google-cloud-sdk/install.sh --usage-reporting=false --path-update=false --bash-completion=false
+rm -rf /tmp/google-cloud-sdk.zip
+
+# Add gcloud to PATH
+PATH=$PATH:$VENDOR_DIR/google-cloud-sdk/bin
+source "$VENDOR_DIR/google-cloud-sdk/path.bash.inc"
+
+# Authenticate with service account in GOOGLE_CREDENTIALS
+echo $GOOGLE_CREDENTIALS | base64 -d > google_credentials.json
+gcloud auth activate-service-account --key-file google_credentials.json
