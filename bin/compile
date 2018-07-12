@@ -7,10 +7,10 @@
 BUILD_DIR=$1
 CACHE_DIR=$2
 ENV_DIR=$3
+export ENV_DIR
 
 VENDOR_DIR=$BUILD_DIR/vendor
 mkdir -p $VENDOR_DIR
-
 # Download and install Google Cloud SDK
 wget https://dl.google.com/dl/cloudsdk/release/google-cloud-sdk.zip -qO /tmp/google-cloud-sdk.zip
 unzip -qd $VENDOR_DIR /tmp/google-cloud-sdk.zip
