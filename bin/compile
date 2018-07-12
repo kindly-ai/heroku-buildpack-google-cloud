@@ -17,10 +17,10 @@ unzip -qd $VENDOR_DIR /tmp/google-cloud-sdk.zip
 $VENDOR_DIR/google-cloud-sdk/install.sh --usage-reporting=false --path-update=false --bash-completion=false
 rm -rf /tmp/google-cloud-sdk.zip
 
-# Add gcloud to PATH
-PATH=$PATH:$VENDOR_DIR/google-cloud-sdk/bin
-source "$VENDOR_DIR/google-cloud-sdk/path.bash.inc"
-
 # Authenticate with service account in GOOGLE_CREDENTIALS
-echo $GOOGLE_CREDENTIALS | base64 -d > google_credentials.json
-gcloud auth activate-service-account --key-file google_credentials.json
+mkdir -p $BUILD_DIR/.profile.d
+cat <<EOF >$BUILD_DIR/.profile.d/heroku-google-cloud.sh
+export PATH=/app/vendor/google-cloud-sdk/bin:$PATH
+echo $GOOGLE_CREDENTIALS | base64 -d > /app/google-credentials.json
+gcloud auth activate-service-account --key-file /app/google-credentials.json
+EOF
