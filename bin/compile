@@ -18,7 +18,7 @@ unzip -qd $VENDOR_DIR /tmp/google-cloud-sdk.zip
 $VENDOR_DIR/google-cloud-sdk/install.sh --usage-reporting=false --path-update=false --bash-completion=false
 rm -rf /tmp/google-cloud-sdk.zip
 
-# Authenticate with service account in GOOGLE_CREDENTIALS
+# Copy .profile.d script for configuring gcloud
 mkdir -p $BUILD_DIR/.profile.d
 cp $BUILDPACK_DIR/profile.d/heroku-google-cloud.sh $BUILD_DIR/.profile.d
 
