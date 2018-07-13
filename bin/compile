@@ -28,8 +28,7 @@ export PATH=$VENDOR_DIR/google-cloud-sdk/bin:$PATH
 # Install kubectl
 if [ -r "$ENV_DIR/INSTALL_KUBECTL" ]; then
     INSTALL_KUBECTL="$(cat "$ENV_DIR/INSTALL_KUBECTL")"
-    echo $INSTALL_KUBECTL
-    if [ INSTALL_KUBECTL == "true" ]; then
+    if [ $INSTALL_KUBECTL == "true" ]; then
         gcloud components install kubectl --quiet
     fi
 fi
