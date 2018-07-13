@@ -1,4 +1,4 @@
-# ✨ heroku-buildpack-google-cloud: Heroku buildpack for Google Cloud
+# ✨ Heroku buildpack for Google Cloud
 This buildpack installs Google Cloud, activates your service account and sets default project and compute zone.
 
 ## Config vars
