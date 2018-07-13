@@ -9,4 +9,4 @@ heroku config:set GOOGLE_CREDENTIALS=$GOOGLE_CREDENTIALS
 ```
 - `PROJECT` – your Google Cloud project
 - `ZONE` - your Google Cloud compute zone
-- `INSTALL_KUBECTL` – set this to 1 if you want to install `kubectl` as well
+- `INSTALL_KUBECTL` – if set to 1, `kubectl` will also be installed
