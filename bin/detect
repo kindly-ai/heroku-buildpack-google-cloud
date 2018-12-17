@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
 
-echo "Google Cloud"
+if [ -n "$GOOGLE_CREDENTIALS" ]; then
+  echo "Google Cloud"
+  exit 0
+else
+  exit 1
+fi
