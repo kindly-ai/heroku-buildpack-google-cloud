@@ -6,7 +6,8 @@ export PATH=/app/vendor/google-cloud-sdk/bin:$PATH
 if [ -z $GOOGLE_CREDENTIALS ]; then
     echo "GOOGLE_CREDENTIALS not set"
 else
-    echo "$GOOGLE_CREDENTIALS" | base64 -d > /app/google-credentials.json
+    export GOOGLE_APPLICATION_CREDENTIALS='/app/google-credentials.json'
+    echo "$GOOGLE_CREDENTIALS" | base64 -d > $GOOGLE_APPLICATION_CREDENTIALS
     gcloud auth activate-service-account --key-file /app/google-credentials.json
 fi
 
