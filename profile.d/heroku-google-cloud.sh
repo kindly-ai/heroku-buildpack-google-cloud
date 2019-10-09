@@ -3,7 +3,7 @@
 # Add gcloud to PATH
 export PATH=/app/vendor/google-cloud-sdk/bin:$PATH
 
-if [ -z $GOOGLE_CREDENTIALS ]; then
+if [ -z "$GOOGLE_CREDENTIALS" ]; then
     echo "GOOGLE_CREDENTIALS not set"
 else
     export GOOGLE_APPLICATION_CREDENTIALS='/app/google-credentials.json'
